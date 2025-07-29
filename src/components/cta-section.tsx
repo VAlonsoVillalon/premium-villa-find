@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const CTASection = () => {
   return (
@@ -31,15 +32,17 @@ export const CTASection = () => {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-          <Button 
-            variant="hero" 
-            size="lg" 
-            className="text-lg px-12 py-6 h-auto min-w-[240px] group"
-          >
-            <Calendar className="w-5 h-5 mr-2" />
-            Explorar Villas
-            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-          </Button>
+          <Link to="/explorar-villas">
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="text-lg px-12 py-6 h-auto min-w-[240px] group"
+            >
+              <Calendar className="w-5 h-5 mr-2" />
+              Explorar Villas
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+            </Button>
+          </Link>
           
           <Button 
             variant="luxuryOutline" 

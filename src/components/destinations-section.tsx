@@ -1,44 +1,9 @@
 import { Card } from "@/components/ui/card";
-import ibizaImage from "@/assets/ibiza-villa.jpg";
-import marbellaImage from "@/assets/marbella-villa.jpg";
-import mallorcaImage from "@/assets/mallorca-villa.jpg";
-import baqueiraImage from "@/assets/baqueira-chalet.jpg";
-import andorraImage from "@/assets/andorra-chalet.jpg";
-
-const destinations = [
-  {
-    name: "Ibiza",
-    description: "Islas Baleares - Villas frente al mar",
-    image: ibizaImage,
-    properties: "24 villas",
-  },
-  {
-    name: "Marbella",
-    description: "Costa del Sol - Lujo mediterráneo",
-    image: marbellaImage,
-    properties: "18 villas",
-  },
-  {
-    name: "Mallorca",
-    description: "Islas Baleares - Elegancia tradicional",
-    image: mallorcaImage,
-    properties: "31 villas",
-  },
-  {
-    name: "Baqueira",
-    description: "Pirineos - Chalets de montaña",
-    image: baqueiraImage,
-    properties: "12 chalets",
-  },
-  {
-    name: "Andorra",
-    description: "Pirineos - Lujo alpino",
-    image: andorraImage,
-    properties: "8 chalets",
-  },
-];
+import { getFeaturedDestinations } from "@/data/destinations";
 
 export const DestinationsSection = () => {
+  const featuredDestinations = getFeaturedDestinations();
+  
   return (
     <section className="py-24 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
@@ -57,7 +22,7 @@ export const DestinationsSection = () => {
 
         {/* Destinations Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {destinations.map((destination, index) => (
+          {featuredDestinations.map((destination, index) => (
             <Card 
               key={destination.name}
               className="group relative overflow-hidden border-0 shadow-luxury hover:shadow-gold transition-all duration-500 cursor-pointer"

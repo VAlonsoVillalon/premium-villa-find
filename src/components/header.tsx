@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, Crown } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +11,7 @@ export const Header = () => {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
             <div className="w-10 h-10 bg-gradient-luxury rounded-xl flex items-center justify-center">
               <Crown className="w-6 h-6 text-white" />
             </div>
@@ -20,7 +21,7 @@ export const Header = () => {
               </h1>
               <p className="text-xs text-muted-foreground">Destinos exclusivos</p>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -43,9 +44,11 @@ export const Header = () => {
             <Button variant="luxuryOutline" size="sm">
               Concierge
             </Button>
-            <Button variant="luxury" size="sm">
-              Explorar Villas
-            </Button>
+            <Link to="/explorar-villas">
+              <Button variant="luxury" size="sm">
+                Explorar Villas
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -93,9 +96,11 @@ export const Header = () => {
                 <Button variant="luxuryOutline" size="sm">
                   Concierge
                 </Button>
-                <Button variant="luxury" size="sm">
-                  Explorar Villas
-                </Button>
+                <Link to="/explorar-villas">
+                  <Button variant="luxury" size="sm">
+                    Explorar Villas
+                  </Button>
+                </Link>
               </div>
             </nav>
           </div>
