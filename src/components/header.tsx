@@ -41,6 +41,9 @@ export const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
+            <Link to="/admin" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Admin
+            </Link>
             <Button variant="luxuryOutline" size="sm">
               Concierge
             </Button>
@@ -93,6 +96,13 @@ export const Header = () => {
                 Contacto
               </a>
               <div className="flex flex-col space-y-3 pt-4">
+                <Link 
+                  to="/admin" 
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Admin
+                </Link>
                 <Button variant="luxuryOutline" size="sm">
                   Concierge
                 </Button>
