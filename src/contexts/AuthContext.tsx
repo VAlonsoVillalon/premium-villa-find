@@ -36,8 +36,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUser(session?.user ?? null);
         
         if (session?.user) {
-          // For now, set admin based on email - update this after creating tables
-          setIsAdmin(session.user.email?.includes('admin') || false);
+          // Check if user has admin role in database using setTimeout to avoid deadlock
+          setTimeout(async () => {
+            try {
+              const { data, error } = await (supabase as any)
+                .from('user_roles')
+                .select('role')
+                .eq('user_id', session.user.id)
+                .eq('role', 'admin')
+                .single();
+              
+              setIsAdmin(!error && data);
+            } catch (error) {
+              setIsAdmin(false);
+            }
+          }, 0);
           setLoading(false);
         } else {
           setIsAdmin(false);
