@@ -10,6 +10,7 @@ import {
   type Destination 
 } from "@/data/destinations";
 import { Sun, Snowflake, MapPin, Home, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const DestinationCard = ({ destination }: { destination: Destination }) => (
   <Card className="group relative overflow-hidden border-0 shadow-luxury hover:shadow-gold transition-all duration-500 cursor-pointer">
@@ -63,9 +64,11 @@ const DestinationCard = ({ destination }: { destination: Destination }) => (
 
       {/* Hover effect */}
       <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <Button variant="luxuryOutline" size="sm" className="text-white border-white/50 hover:bg-white hover:text-primary">
-          Ver Villas <ArrowRight className="w-4 h-4 ml-2" />
-        </Button>
+        <Link to={`/destino/${destination.id}`}>
+          <Button variant="luxuryOutline" size="sm" className="text-white border-white/50 hover:bg-white hover:text-primary">
+            Ver Villas <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
+        </Link>
       </div>
     </div>
   </Card>

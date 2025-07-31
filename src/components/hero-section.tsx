@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-villa.jpg";
 
 export const HeroSection = () => {
@@ -29,21 +30,25 @@ export const HeroSection = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up">
-          <Button 
-            variant="hero" 
-            size="lg" 
-            className="text-lg px-12 py-6 h-auto min-w-[200px]"
-          >
-            Descubrir Villas
-          </Button>
+          <Link to="/explorar-villas">
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="text-lg px-12 py-6 h-auto min-w-[200px]"
+            >
+              Descubrir Villas
+            </Button>
+          </Link>
           
-          <Button 
-            variant="luxuryOutline" 
-            size="lg" 
-            className="text-lg px-12 py-6 h-auto min-w-[200px] border-white/50 text-white hover:bg-white"
-          >
-            Ver Destinos
-          </Button>
+          <a href="#destinos">
+            <Button 
+              variant="luxuryOutline" 
+              size="lg" 
+              className="text-lg px-12 py-6 h-auto min-w-[200px] border-white/50 text-white hover:bg-white hover:text-primary"
+            >
+              Ver Destinos
+            </Button>
+          </a>
         </div>
       </div>
       

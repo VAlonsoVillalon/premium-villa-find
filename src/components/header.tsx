@@ -2,9 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Crown } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ConciergeModal } from "./ConciergeModal";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isConciergeModalOpen, setIsConciergeModalOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border/50">
@@ -44,7 +46,11 @@ export const Header = () => {
             <Link to="/admin" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Admin
             </Link>
-            <Button variant="luxuryOutline" size="sm">
+            <Button 
+              variant="luxuryOutline" 
+              size="sm"
+              onClick={() => setIsConciergeModalOpen(true)}
+            >
               Concierge
             </Button>
             <Link to="/explorar-villas">
@@ -103,7 +109,11 @@ export const Header = () => {
                 >
                   Admin
                 </Link>
-                <Button variant="luxuryOutline" size="sm">
+                <Button 
+                  variant="luxuryOutline" 
+                  size="sm"
+                  onClick={() => setIsConciergeModalOpen(true)}
+                >
                   Concierge
                 </Button>
                 <Link to="/explorar-villas">
@@ -116,6 +126,11 @@ export const Header = () => {
           </div>
         )}
       </div>
+      
+      <ConciergeModal 
+        open={isConciergeModalOpen} 
+        onOpenChange={setIsConciergeModalOpen} 
+      />
     </header>
   );
 };
